@@ -9,6 +9,23 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        ae: ae {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_wait_time 40>,
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap_time 40>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N0>,
+                <&macro_release>;
+
+            label = "AE";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -37,7 +54,7 @@
             bindings = <
 &trans  &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp PERCENT    &kp AMPS      &kp CARET  &kp EQUAL  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION  &none
 &none   &kp LESS_THAN    &kp GREATER_THAN   &kp ASTERISK  &kp PLUS       &kp MINUS     &kp TILDE  &kp SLASH  &kp LBKT              &kp RBKT               &kp SQT       &none
-&none   &none            &none              &kp GRAVE     &kp BACKSLASH  &kp DOLLAR    &kp UNDER  &kp PIPE   &kp LBRC              &kp RBRC               &kp AT_SIGN   &none
+&none   &none            &ae                &kp GRAVE     &kp BACKSLASH  &kp DOLLAR    &kp UNDER  &kp PIPE   &kp LBRC              &kp RBRC               &kp AT_SIGN   &none
                                             &trans        &trans         &trans        &trans     &trans     &trans
             >;
         };
